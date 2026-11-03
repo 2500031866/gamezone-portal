@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KLU GameZone gaming tournament portal">
+<title>KLU GameZone | Tournaments</title>
+<link rel="stylesheet" href="style.css"><script src="script.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="/">KLU <span>GAMEZONE</span></a>
+<nav class="nav-links"><a href="#tournaments">Tournaments</a><a href="#about">About</a></nav>
+<div class="account-actions">
+<span id="currentUser" class="muted"></span>
+<button id="loginOpen" class="btn btn-outline" type="button">Login</button>
+<button id="signupOpen" class="btn btn-primary" type="button">Sign up</button>
+<button id="logoutBtn" class="btn btn-outline hidden" type="button">Logout</button>
+<a id="adminLink" class="btn btn-outline hidden" href="/admin.html">Admin</a>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="hero-content"><p class="eyebrow">PLAY • COMPETE • WIN</p>
+<h1>YOUR NEXT<br><span>VICTORY STARTS HERE.</span></h1>
+<p>Join tournaments, build your team, and compete with the KLU gaming community.</p>
+<a class="btn btn-primary" href="#tournaments">Explore tournaments</a></div>
+<div class="hero-panel"><div class="hero-mark">K<span>G</span></div><p>READY PLAYER ONE?</p><small>Find your squad. Claim your place.</small></div>
+</section>
+<section id="tournaments" class="section">
+<div class="section-heading"><div><p class="eyebrow">FIND YOUR MATCH</p><h2>Featured tournaments</h2></div>
+<input id="tournamentSearch" class="search" type="search" placeholder="Search tournaments..." aria-label="Search tournaments"></div>
+<div id="tournamentGrid" class="tournament-grid">
+<article class="tournament-card"><div class="game-banner banner-fire"><span>FREE FIRE</span></div><div class="card-body"><p class="tag">BATTLE ROYALE</p><h3>Free Fire Championship</h3><p>Squad up and compete for the top spot.</p><div class="card-meta"><span>Team tournament</span><span>Open entry</span></div><button class="btn btn-primary register-btn" data-tournament="Free Fire Championship">Register now</button></div></article>
+<article class="tournament-card"><div class="game-banner banner-bgmi"><span>BGMI</span></div><div class="card-body"><p class="tag">BATTLE ROYALE</p><h3>BGMI Showdown</h3><p>Bring your best strategy and your best team.</p><div class="card-meta"><span>Team tournament</span><span>Open entry</span></div><button class="btn btn-primary register-btn" data-tournament="BGMI Showdown">Register now</button></div></article>
+<article class="tournament-card"><div class="game-banner banner-fifa"><span>EA SPORTS FC</span></div><div class="card-body"><p class="tag">SPORTS</p><h3>FC Football Cup</h3><p>Take the pitch and prove your skills.</p><div class="card-meta"><span>Solo tournament</span><span>Open entry</span></div><button class="btn btn-primary register-btn" data-tournament="FC Football Cup">Register now</button></div></article>
+</div><p id="noResults" class="muted hidden">No tournaments match your search.</p>
+</section>
+<section id="about" class="about section"><p class="eyebrow">THE COMMUNITY</p><h2>More than a game.</h2><p>Connect with players, compete in organized events, and make your next gaming moment count.</p></section>
+</main>
+<footer><span>KLU GAMEZONE</span><span>Play fair. Play hard.</span></footer>
+<div id="authModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+<div class="modal-card"><button class="modal-close" data-close="authModal" type="button" aria-label="Close">×</button>
+<p class="eyebrow">PLAYER ACCOUNT</p><h2 id="authTitle">Welcome back</h2><p id="authDescription" class="muted">Log in to join a tournament.</p>
+<form id="authForm"><label for="authUsername">Username</label><input id="authUsername" name="username" type="text" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" autocomplete="username" required>
+<label for="authPassword">Password</label><input id="authPassword" name="password" type="password" minlength="8" maxlength="72" autocomplete="current-password" required>
+<button id="authSubmit" class="btn btn-primary btn-full" type="submit">Login</button><p id="authMessage" class="form-message" aria-live="polite"></p></form>
+<p class="switch-auth"><span id="switchPrompt">New to GameZone?</span> <button id="switchAuth" class="text-button" type="button">Create an account</button></p>
+</div></div>
+<div id="registrationModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="registrationTitle">
+<div class="modal-card"><button class="modal-close" data-close="registrationModal" type="button" aria-label="Close">×</button>
+<p class="eyebrow">ENTER THE ARENA</p><h2 id="registrationTitle">Tournament registration</h2><p id="selectedTournamentLabel" class="muted"></p>
+<form id="registrationForm"><input id="selectedTournament" name="tournament" type="hidden">
+<label for="playerName">Full name</label><input id="playerName" name="name" type="text" maxlength="100" autocomplete="name" required>
+<label for="playerEmail">Email</label><input id="playerEmail" name="email" type="email" maxlength="254" autocomplete="email" required>
+<label for="playerAddress">Full address</label><textarea id="playerAddress" name="address" rows="2" maxlength="500" autocomplete="street-address" required></textarea>
+<label for="teamName">Team name (optional)</label><input id="teamName" name="team" type="text" maxlength="100">
+<button class="btn btn-primary btn-full" type="submit">Submit registration</button><p id="registrationMessage" class="form-message" aria-live="polite"></p></form>
+</div></div><div id="toast" class="toast hidden" role="status"></div>
+</body></html>
